@@ -43,14 +43,12 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>Data product Project</h2>
   </hgroup>
   <article data-timings="">
-    <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
+    <h3>Number of poor houses in Brazil</h3>
+
+<p>The proposital is evaluate the variation os brazilians poor house since 1976. Data is download from IPEA web site and plotted a regression line. </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -58,40 +56,58 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>Data</h2>
   </hgroup>
   <article data-timings="">
-    
+    <h3>Example of raw data and summary:</h3>
+
+<pre><code>##   Date Number.of.poor.houses
+## 1 1976               8120382
+## 2 1977               6735898
+## 3 1978               8713473
+## 4 1979               7145330
+## 5 1981               8619740
+</code></pre>
+
+<pre><code>##       Date      Number.of.poor.houses
+##  Min.   :1976   Min.   : 6223185     
+##  1st Qu.:1985   1st Qu.: 8713473     
+##  Median :1995   Median :10909145     
+##  Mean   :1994   Mean   :10420361     
+##  3rd Qu.:2004   3rd Qu.:12113358     
+##  Max.   :2013   Max.   :13844173
+</code></pre>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 3</h2>
+    <h2>Graphic</h2>
   </hgroup>
   <article data-timings="">
-    
+    <p>It&#39;s a simple plot command (year x number of houses) and added a regression line.</p>
+
+<pre><code class="r">plot(data2$Date ,data2$Number.of.poor.houses/1000000 ,type = &quot;l&quot;, xlab=&quot;YEAR&quot;, ylab=&quot;NUMBER OF HOUSES (MILLIONS)&quot;)
+            regline &lt;- lm(data2$Number.of.poor.houses/1000000 ~ data2$Date, data=data)
+            abline(regline, col=&quot;red&quot;)
+</code></pre>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 4</h2>
+    <h2>Slider</h2>
   </hgroup>
   <article data-timings="">
-    
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+    <p>Slider helps to evaluated how the number of poors houses and the regression variated over the years. </p>
 
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Slide 5</h2>
-  </hgroup>
-  <article data-timings="">
-    
+<pre><code class="r">sliderInput(&#39;year&#39;, &#39;Select bottom year&#39;,value=1990, min=1976 ,max=2009 , step=1),
+</code></pre>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -102,32 +118,26 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='Data product Project'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='Data'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Slide 3'>
+        data-slide=3 title='Graphic'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Slide 4'>
+        data-slide=4 title='Slider'>
          4
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Slide 5'>
-         5
       </a>
     </li>
   </ul>
